@@ -12,38 +12,27 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
 .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color:white; padding:14px 15px 12px; text-align:center; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
 .header h1 { font-size:1.2em; margin-bottom:2px; }
 .header .sub { font-size:0.75em; opacity:0.85; }
-
 .tabs { display:flex; background:white; border-bottom:1px solid #ddd; position:sticky; top:54px; z-index:99; }
 .tab { flex:1; padding:11px 5px; text-align:center; font-size:0.8em; cursor:pointer; border-bottom:3px solid transparent; transition:all 0.2s; user-select:none; color:#666; }
 .tab.active { border-bottom-color:#667eea; color:#667eea; font-weight:bold; background:#f8f7ff; }
-
 .page { display:none; padding:15px; }
 .page.active { display:block; }
-
-/* 概览条 */
 .overview-bar { background:white; border-radius:12px; padding:12px 16px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); display:flex; justify-content:space-around; text-align:center; }
 .overview-bar .num { font-size:1.5em; font-weight:bold; color:#667eea; }
 .overview-bar .label { font-size:0.7em; color:#999; }
-
-/* 学习卡片 */
 .word-card { background:white; border-radius:14px; padding:20px; margin:10px 0; box-shadow:0 2px 12px rgba(0,0,0,0.08); min-height:40vh; display:flex; flex-direction:column; justify-content:center; }
 .word-card .word { font-size:2em; font-weight:bold; color:#667eea; text-align:center; margin-bottom:4px; word-break:break-word; }
 .word-card .initial { font-size:0.75em; color:#bbb; text-align:center; margin-bottom:10px; }
 .word-card .meaning { font-size:1em; line-height:1.7; color:#333; white-space:pre-wrap; word-break:break-word; }
-.word-card .done-msg { text-align:center; font-size:1.2em; color:#48bb78; padding:30px 0; }
-
 .progress-info { display:flex; justify-content:space-between; align-items:center; padding:8px 0; font-size:0.8em; color:#999; }
 .progress-bar { width:100%; height:8px; background:#e0e0e0; border-radius:4px; overflow:hidden; margin-bottom:10px; }
 .progress-fill { height:100%; background:linear-gradient(90deg, #667eea, #764ba2); transition:width 0.3s; }
-
 .btn-bar { position:fixed; bottom:0; left:0; right:0; display:none; gap:0; background:white; border-top:1px solid #eee; padding:10px 15px; padding-bottom:calc(10px + env(safe-area-inset-bottom)); z-index:101; }
 .btn-bar button { flex:1; padding:16px 5px; border:none; border-radius:12px; font-size:0.95em; font-weight:bold; cursor:pointer; margin:0 4px; transition:transform 0.1s; }
 .btn-bar button:active { transform:scale(0.95); }
 .btn-bar .b0 { background:#f56565; color:white; }
 .btn-bar .b1 { background:#ed8936; color:white; }
 .btn-bar .b2 { background:#48bb78; color:white; }
-
-/* 词库 */
 .search-box { width:100%; padding:12px 14px; border:1px solid #ddd; border-radius:10px; font-size:0.9em; margin-bottom:10px; outline:none; }
 .search-box:focus { border-color:#667eea; }
 .filter-chips { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
@@ -54,14 +43,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
 .word-list-item:active { background:#f0edff; }
 .word-list-item .w-word { font-weight:bold; color:#667eea; }
 .word-list-item .w-tag { font-size:0.75em; color:#bbb; }
-
-/* 导入 */
 .file-label { display:block; padding:14px; background:#eef2ff; border:2px dashed #667eea; border-radius:12px; text-align:center; color:#667eea; cursor:pointer; margin:10px 0; font-size:0.9em; }
 .file-label:active { background:#e0e7ff; }
 textarea { width:100%; height:140px; border:1px solid #ddd; border-radius:10px; padding:10px; font-size:0.8em; resize:vertical; font-family:monospace; }
 .import-result { margin-top:10px; font-size:0.85em; }
-
-/* 进度 */
 .stat-card { background:white; border-radius:12px; padding:16px; margin-bottom:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
 .stat-card h3 { font-size:0.9em; color:#667eea; margin-bottom:8px; }
 .stat-row { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #f5f5f5; font-size:0.85em; }
@@ -75,14 +60,10 @@ textarea { width:100%; height:140px; border:1px solid #ddd; border-radius:10px; 
 .setting-row label { font-size:0.85em; }
 .setting-row input[type="number"] { width:60px; padding:6px; border:1px solid #ddd; border-radius:6px; font-size:0.85em; text-align:center; }
 .setting-row input[type="checkbox"] { width:22px; height:22px; }
-
 .empty { text-align:center; padding:40px 20px; color:#999; }
 .empty .icon { font-size:3em; margin-bottom:10px; }
-
 .continue-prompt { background:#f0edff; border-radius:12px; padding:20px; text-align:center; margin:15px 0; }
 .continue-prompt p { margin-bottom:12px; color:#667eea; font-weight:bold; }
-
-/* 浮层 */
 .overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index:200; padding:20px; overflow-y:auto; }
 .overlay-card { background:white; border-radius:14px; padding:24px; margin-top:10vh; max-width:500px; margin-left:auto; margin-right:auto; }
 .overlay-card .o-word { font-size:1.8em; font-weight:bold; color:#667eea; text-align:center; margin-bottom:6px; }
@@ -105,7 +86,6 @@ textarea { width:100%; height:140px; border:1px solid #ddd; border-radius:10px; 
   <div class="tab" data-tab="progress" onclick="switchTab('progress', this)">📊 进度</div>
 </div>
 
-<!-- 学习（合并今日） -->
 <div class="page active" id="page-study">
   <div class="overview-bar" id="overview-bar">
     <div><div class="num" id="ov-review">0</div><div class="label">今日复习</div></div>
@@ -120,7 +100,6 @@ textarea { width:100%; height:140px; border:1px solid #ddd; border-radius:10px; 
   <div id="study-card-area"></div>
 </div>
 
-<!-- 词库 -->
 <div class="page" id="page-library">
   <input class="search-box" id="library-search" placeholder="🔍 搜索单词..." oninput="onLibrarySearch()">
   <div class="stat-card">
@@ -130,7 +109,6 @@ textarea { width:100%; height:140px; border:1px solid #ddd; border-radius:10px; 
   </div>
 </div>
 
-<!-- 导入 -->
 <div class="page" id="page-import">
   <p style="font-size:0.8em;color:#666;margin-bottom:8px;">格式：序号 \t 首字母/分类 \t 单词 \t 词义</p>
   <label class="file-label" for="file-input">📂 选择 CSV/TXT 文件（从Excel导出）</label>
@@ -141,7 +119,6 @@ textarea { width:100%; height:140px; border:1px solid #ddd; border-radius:10px; 
   <div class="import-result" id="import-result"></div>
 </div>
 
-<!-- 进度 -->
 <div class="page" id="page-progress">
   <div class="stat-card">
     <h3>📈 统计概览</h3>
@@ -172,14 +149,12 @@ textarea { width:100%; height:140px; border:1px solid #ddd; border-radius:10px; 
   </div>
 </div>
 
-<!-- 底部按钮栏 -->
 <div class="btn-bar" id="btn-bar">
   <button class="b0" onclick="answer(0)">❌ 不认识</button>
   <button class="b1" onclick="answer(1)">🤔 模糊</button>
   <button class="b2" onclick="answer(2)">✅ 认识</button>
 </div>
 
-<!-- 单词详情浮层 -->
 <div class="overlay" id="word-overlay" onclick="if(event.target===this)closeOverlay()">
   <div class="overlay-card">
     <div class="o-word" id="o-word"></div>
@@ -190,7 +165,9 @@ textarea { width:100%; height:140px; border:1px solid #ddd; border-radius:10px; 
 </div>
 
 <script>
-// ============ 数据层 ============
+// ============ 数据层（带前缀隔离，彻底告别旧数据污染）============
+const KEY_PREFIX = 'vocab-app:';
+
 let words = [];
 let records = [];
 let cycles = {};
@@ -198,11 +175,11 @@ let mastered = {};
 let settings = { reviewLimit: 50, newLimit: 20, autoSkip: true };
 
 function loadAll() {
-  try { words = JSON.parse(localStorage.getItem('bw_words') || '[]'); } catch(e) {}
-  try { records = JSON.parse(localStorage.getItem('bw_records') || '[]'); } catch(e) {}
-  try { cycles = JSON.parse(localStorage.getItem('bw_cycles') || '{}'); } catch(e) {}
-  try { mastered = JSON.parse(localStorage.getItem('bw_mastered') || '{}'); } catch(e) {}
-  try { settings = Object.assign(settings, JSON.parse(localStorage.getItem('bw_settings') || '{}')); } catch(e) {}
+  try { words = JSON.parse(localStorage.getItem(KEY_PREFIX + 'bw_words') || '[]'); } catch(e) {}
+  try { records = JSON.parse(localStorage.getItem(KEY_PREFIX + 'bw_records') || '[]'); } catch(e) {}
+  try { cycles = JSON.parse(localStorage.getItem(KEY_PREFIX + 'bw_cycles') || '{}'); } catch(e) {}
+  try { mastered = JSON.parse(localStorage.getItem(KEY_PREFIX + 'bw_mastered') || '{}'); } catch(e) {}
+  try { settings = Object.assign(settings, JSON.parse(localStorage.getItem(KEY_PREFIX + 'bw_settings') || '{}')); } catch(e) {}
   const rl = document.getElementById('setting-review-limit');
   const nl = document.getElementById('setting-new-limit');
   const as = document.getElementById('setting-auto-skip');
@@ -210,15 +187,15 @@ function loadAll() {
   if (nl) nl.value = settings.newLimit;
   if (as) as.checked = settings.autoSkip;
 }
-function saveWords() { localStorage.setItem('bw_words', JSON.stringify(words)); }
-function saveRecords() { localStorage.setItem('bw_records', JSON.stringify(records)); }
-function saveCycles() { localStorage.setItem('bw_cycles', JSON.stringify(cycles)); }
-function saveMastered() { localStorage.setItem('bw_mastered', JSON.stringify(mastered)); }
+function saveWords() { localStorage.setItem(KEY_PREFIX + 'bw_words', JSON.stringify(words)); }
+function saveRecords() { localStorage.setItem(KEY_PREFIX + 'bw_records', JSON.stringify(records)); }
+function saveCycles() { localStorage.setItem(KEY_PREFIX + 'bw_cycles', JSON.stringify(cycles)); }
+function saveMastered() { localStorage.setItem(KEY_PREFIX + 'bw_mastered', JSON.stringify(mastered)); }
 function saveSettings() {
   settings.reviewLimit = parseInt(document.getElementById('setting-review-limit').value) || 0;
   settings.newLimit = parseInt(document.getElementById('setting-new-limit').value) || 0;
   settings.autoSkip = document.getElementById('setting-auto-skip').checked;
-  localStorage.setItem('bw_settings', JSON.stringify(settings));
+  localStorage.setItem(KEY_PREFIX + 'bw_settings', JSON.stringify(settings));
 }
 
 function getTodayStr() {
@@ -240,44 +217,23 @@ function parseImportText(text) {
   let inQuote = false;
   for (let i = 0; i < text.length; i++) {
     const ch = text[i];
-    if (ch === '"') {
-      inQuote = !inQuote;
-      current += ch;
-    } else if (ch === '\n' && !inQuote) {
-      if (current.trim()) lines.push(current);
-      current = '';
-    } else if (ch === '\r') {
-      // 忽略
-    } else {
-      current += ch;
-    }
+    if (ch === '"') { inQuote = !inQuote; current += ch; }
+    else if (ch === '\n' && !inQuote) { if (current.trim()) lines.push(current); current = ''; }
+    else if (ch === '\r') {}
+    else { current += ch; }
   }
   if (current.trim()) lines.push(current);
-
   const result = [];
   for (let line of lines) {
     if (!line.trim()) continue;
     const parts = line.split('\t');
     let seq = '', initial = '', word = '', meaning = '';
-    if (parts.length >= 4) {
-      seq = parts[0].trim();
-      initial = parts[1].trim();
-      word = parts[2].trim();
-      meaning = parts[3].trim();
-    } else if (parts.length === 3) {
-      seq = parts[0].trim();
-      word = parts[1].trim();
-      meaning = parts[2].trim();
-    } else if (parts.length === 2) {
-      word = parts[0].trim();
-      meaning = parts[1].trim();
-    } else {
-      continue;
-    }
+    if (parts.length >= 4) { seq = parts[0].trim(); initial = parts[1].trim(); word = parts[2].trim(); meaning = parts[3].trim(); }
+    else if (parts.length === 3) { seq = parts[0].trim(); word = parts[1].trim(); meaning = parts[2].trim(); }
+    else if (parts.length === 2) { word = parts[0].trim(); meaning = parts[1].trim(); }
+    else continue;
     if (!word) continue;
-    if (meaning.startsWith('"') && meaning.endsWith('"')) {
-      meaning = meaning.slice(1, -1);
-    }
+    if (meaning.startsWith('"') && meaning.endsWith('"')) { meaning = meaning.slice(1, -1); }
     meaning = meaning.replace(/""/g, '"');
     result.push({ seq, initial, word, meaning });
   }
@@ -298,10 +254,7 @@ function doImport() {
 }
 function processImportText(text) {
   const parsed = parseImportText(text);
-  if (parsed.length === 0) {
-    document.getElementById('import-result').innerHTML = '<p style="color:red;">❌ 没有解析到有效单词，请检查格式</p>';
-    return;
-  }
+  if (parsed.length === 0) { document.getElementById('import-result').innerHTML = '<p style="color:red;">❌ 没有解析到有效单词</p>'; return; }
   const existingWords = new Set(words.map(w => w.word.toLowerCase()));
   let count = 0, dupCount = 0;
   for (let p of parsed) {
@@ -311,13 +264,13 @@ function processImportText(text) {
     count++;
   }
   saveWords();
-  document.getElementById('import-result').innerHTML = `<p style="color:green;">✅ 成功导入 ${count} 个单词${dupCount > 0 ? `（跳过${dupCount}个重复）` : ''}！共 ${words.length} 个</p>`;
+  document.getElementById('import-result').innerHTML = `<p style="color:green;">✅ 成功导入 ${count} 个${dupCount > 0 ? `（跳过${dupCount}重复）` : ''}！共 ${words.length} 个</p>`;
   document.getElementById('import-text').value = '';
   updateOverview();
   renderLibrary();
 }
 
-// ============ 学习（合并今日） ============
+// ============ 学习 ============
 function getTodayReviewList() {
   const today = getTodayStr();
   const reviewIntervals = [1, 3, 7, 14, 28];
@@ -326,10 +279,7 @@ function getTodayReviewList() {
     const diff = getDateDiff(r.date, today);
     if (reviewIntervals.includes(diff)) {
       const w = words.find(x => x.id === r.wordId);
-      if (w && !candidates.has(w.id)) {
-        if ((cycles[w.id] || 0) >= 5) continue;
-        candidates.add(w.id);
-      }
+      if (w && !candidates.has(w.id)) { if ((cycles[w.id] || 0) >= 5) continue; candidates.add(w.id); }
     }
   }
   const todayDone = new Set(getTodayRecords().map(r => r.wordId));
@@ -338,8 +288,7 @@ function getTodayReviewList() {
 function getTodayNewList() {
   const todayDone = new Set(getTodayRecords().map(r => r.wordId));
   const newWords = words.filter(w => {
-    const hasRecord = records.some(r => r.wordId === w.id);
-    if (hasRecord) return false;
+    if (records.some(r => r.wordId === w.id)) return false;
     if (todayDone.has(w.id)) return false;
     if (settings.autoSkip && (mastered[w.id] || 0) >= 3) return false;
     return true;
@@ -362,12 +311,10 @@ function updateOverview() {
 
 function initStudyPage() {
   if (sessionState.index > 0 && sessionState.index < sessionState.list.length) {
-    // 正在学习中，继续显示
     document.getElementById('btn-bar').style.display = 'flex';
     showStudyCard();
     return;
   }
-  // 重新计算任务
   const reviewList = getTodayReviewList();
   const newList = getTodayNewList();
   sessionState.list = [...reviewList, ...newList];
@@ -392,15 +339,9 @@ function showStudyCard() {
   if (sessionState.index >= sessionState.list.length) {
     const remaining = getTodayReviewList().length + getTodayNewList().length;
     if (remaining > 0 && settings.reviewLimit > 0 && sessionState.doneCount >= settings.reviewLimit) {
-      document.getElementById('study-card-area').innerHTML = `
-        <div class="continue-prompt">
-          <p>已完成 ${sessionState.doneCount} 个！</p>
-          <p>还有 ${remaining} 个今天该复习的</p>
-          <button class="btn-action btn-purple" style="width:100%;padding:16px;font-size:1.1em;" onclick="continueSession()">继续学习</button>
-        </div>`;
+      document.getElementById('study-card-area').innerHTML = `<div class="continue-prompt"><p>已完成 ${sessionState.doneCount} 个！</p><p>还有 ${remaining} 个今天该复习的</p><button class="btn-action btn-purple" style="width:100%;padding:16px;font-size:1.1em;" onclick="continueSession()">继续学习</button></div>`;
     } else {
-      document.getElementById('study-card-area').innerHTML = `
-        <div class="empty"><div class="icon">🎉</div><p>今日任务完成！<br>复习了 ${sessionState.reviewCount} 个，新词 ${sessionState.newCount} 个</p></div>`;
+      document.getElementById('study-card-area').innerHTML = '<div class="empty"><div class="icon">🎉</div><p>今日任务完成！<br>复习了 ' + sessionState.reviewCount + ' 个，新词 ' + sessionState.newCount + ' 个</p></div>';
     }
     document.getElementById('btn-bar').style.display = 'none';
     updateOverview();
@@ -409,15 +350,9 @@ function showStudyCard() {
   const w = sessionState.list[sessionState.index];
   const pct = ((sessionState.index) / sessionState.list.length * 100).toFixed(0);
   document.getElementById('study-progress-fill').style.width = pct + '%';
-  document.getElementById('study-progress-text').innerText = `${sessionState.index + 1} / ${sessionState.list.length}`;
-  const isReview = sessionState.index < sessionState.reviewCount;
-  document.getElementById('study-mode-label').innerText = isReview ? '🔄 复习' : '🆕 新词';
-  document.getElementById('study-card-area').innerHTML = `
-    <div class="word-card">
-      <div class="word">${w.word}</div>
-      ${w.initial ? `<div class="initial">${w.initial}</div>` : ''}
-      <div class="meaning">${w.meaning}</div>
-    </div>`;
+  document.getElementById('study-progress-text').innerText = (sessionState.index + 1) + ' / ' + sessionState.list.length;
+  document.getElementById('study-mode-label').innerText = sessionState.index < sessionState.reviewCount ? '🔄 复习' : '🆕 新词';
+  document.getElementById('study-card-area').innerHTML = '<div class="word-card"><div class="word">' + w.word + '</div>' + (w.initial ? '<div class="initial">' + w.initial + '</div>' : '') + '<div class="meaning">' + w.meaning + '</div></div>';
 }
 
 function answer(status) {
@@ -425,23 +360,11 @@ function answer(status) {
   const w = sessionState.list[sessionState.index];
   const today = getTodayStr();
   const existingIdx = records.findIndex(r => r.wordId === w.id && r.date === today);
-  if (existingIdx >= 0) {
-    records[existingIdx].status = status;
-  } else {
-    records.push({ wordId: w.id, date: today, status });
-  }
+  if (existingIdx >= 0) { records[existingIdx].status = status; } else { records.push({ wordId: w.id, date: today, status }); }
   saveRecords();
-  if (status === 2) {
-    mastered[w.id] = (mastered[w.id] || 0) + 1;
-  } else {
-    mastered[w.id] = 0;
-  }
+  if (status === 2) { mastered[w.id] = (mastered[w.id] || 0) + 1; } else { mastered[w.id] = 0; }
   saveMastered();
-  if (status === 2) {
-    cycles[w.id] = Math.min((cycles[w.id] || 0) + 1, 5);
-  } else {
-    cycles[w.id] = 0;
-  }
+  if (status === 2) { cycles[w.id] = Math.min((cycles[w.id] || 0) + 1, 5); } else { cycles[w.id] = 0; }
   saveCycles();
   sessionState.doneCount++;
   sessionState.index++;
@@ -451,7 +374,7 @@ function answer(status) {
 function continueSession() {
   const reviewList = getTodayReviewList();
   const newList = getTodayNewList();
-  sessionState.list = [...sessionState.list, ...reviewList, ...newList];
+  sessionState.list = sessionState.list.concat(reviewList).concat(newList);
   sessionState.reviewCount += reviewList.length;
   sessionState.newCount += newList.length;
   showStudyCard();
@@ -462,48 +385,32 @@ let libraryFilter = '';
 let librarySearch = '';
 function renderLibrary() {
   document.getElementById('library-count').innerText = words.length;
-  // 筛选标签
   const tags = {};
   for (let w of words) { tags[w.initial || '?'] = (tags[w.initial || '?'] || 0) + 1; }
-  let chips = `<span class="filter-chip ${!libraryFilter ? 'active' : ''}" onclick="setLibraryFilter('')">全部 (${words.length})</span>`;
-  Object.keys(tags).sort().forEach(k => {
-    chips += `<span class="filter-chip ${libraryFilter === k ? 'active' : ''}" onclick="setLibraryFilter('${k}')">${k} (${tags[k]})</span>`;
-  });
+  let chips = '<span class="filter-chip ' + (!libraryFilter ? 'active' : '') + '" onclick="setLibraryFilter(\'\')">全部 (' + words.length + ')</span>';
+  Object.keys(tags).sort().forEach(k => { chips += '<span class="filter-chip ' + (libraryFilter === k ? 'active' : '') + '" onclick="setLibraryFilter(\'' + k + '\')">' + k + ' (' + tags[k] + ')</span>'; });
   document.getElementById('library-filters').innerHTML = chips;
   renderLibraryList();
 }
-function setLibraryFilter(f) {
-  libraryFilter = f;
-  renderLibrary();
-}
-function onLibrarySearch() {
-  librarySearch = document.getElementById('library-search').value.trim().toLowerCase();
-  renderLibraryList();
-}
+function setLibraryFilter(f) { libraryFilter = f; renderLibrary(); }
+function onLibrarySearch() { librarySearch = document.getElementById('library-search').value.trim().toLowerCase(); renderLibraryList(); }
 function renderLibraryList() {
   let filtered = words;
   if (libraryFilter) filtered = filtered.filter(w => w.initial === libraryFilter);
   if (librarySearch) filtered = filtered.filter(w => w.word.toLowerCase().includes(librarySearch) || (w.meaning || '').toLowerCase().includes(librarySearch));
   let html = '';
-  for (let w of filtered) {
-    html += `<div class="word-list-item" onclick="showWordDetail(${w.id})">
-      <span class="w-word">${w.word}</span>
-      <span class="w-tag">${w.initial || ''}</span>
-    </div>`;
-  }
+  for (let w of filtered) { html += '<div class="word-list-item" onclick="showWordDetail(' + w.id + ')"><span class="w-word">' + w.word + '</span><span class="w-tag">' + (w.initial || '') + '</span></div>'; }
   document.getElementById('library-list').innerHTML = html || '<p style="color:#999;text-align:center;padding:20px;">没有匹配的单词</p>';
 }
 function showWordDetail(id) {
   const w = words.find(x => x.id === id);
   if (!w) return;
   document.getElementById('o-word').innerText = w.word;
-  document.getElementById('o-tag').innerText = w.initial ? `分类：${w.initial}` : '';
+  document.getElementById('o-tag').innerText = w.initial ? '分类：' + w.initial : '';
   document.getElementById('o-meaning').innerText = w.meaning;
   document.getElementById('word-overlay').style.display = 'block';
 }
-function closeOverlay() {
-  document.getElementById('word-overlay').style.display = 'none';
-}
+function closeOverlay() { document.getElementById('word-overlay').style.display = 'none'; }
 
 // ============ 页面切换 ============
 function switchTab(name, el) {
@@ -517,28 +424,27 @@ function switchTab(name, el) {
   if (name === 'progress') { renderProgress(); }
 }
 
-// ============ 进度页 ============
+// ============ 进度 ============
 function renderProgress() {
   const total = words.length;
   const graduated = Object.values(cycles).filter(c => c >= 5).length;
   const todayDone = getTodayRecords().length;
   const known = Object.values(mastered).filter(m => m >= 3).length;
   let html = '';
-  html += `<div class="stat-row"><span>总单词数</span><span>${total}</span></div>`;
-  html += `<div class="stat-row"><span>已毕业（走完5周期）</span><span>${graduated}</span></div>`;
-  html += `<div class="stat-row"><span>今日已完成</span><span>${todayDone}</span></div>`;
-  html += `<div class="stat-row"><span>连续认识3次+</span><span>${known}</span></div>`;
-  html += `<div class="stat-row"><span>记忆记录总数</span><span>${records.length}</span></div>`;
+  html += '<div class="stat-row"><span>总单词数</span><span>' + total + '</span></div>';
+  html += '<div class="stat-row"><span>已毕业</span><span>' + graduated + '</span></div>';
+  html += '<div class="stat-row"><span>今日已完成</span><span>' + todayDone + '</span></div>';
+  html += '<div class="stat-row"><span>连续认识3次+</span><span>' + known + '</span></div>';
+  html += '<div class="stat-row"><span>记忆记录总数</span><span>' + records.length + '</span></div>';
   document.getElementById('stats-content').innerHTML = html;
 }
-
 function exportAll() {
   const data = { words, records, cycles, mastered, settings, exportDate: getTodayStr() };
-  downloadJSON(data, `vocab-all-${getTodayStr()}.json`);
+  downloadJSON(data, 'vocab-all-' + getTodayStr() + '.json');
 }
 function exportProgress() {
   const data = { records, cycles, mastered, settings, exportDate: getTodayStr() };
-  downloadJSON(data, `vocab-progress-${getTodayStr()}.json`);
+  downloadJSON(data, 'vocab-progress-' + getTodayStr() + '.json');
 }
 function downloadJSON(data, filename) {
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -553,22 +459,33 @@ function handleProgressImport(event) {
   const reader = new FileReader();
   reader.onload = function(e) {
     try {
-      const data = JSON.parse(e.target.result);
-      if (data.records) { records = data.records; saveRecords(); }
-      if (data.cycles) { cycles = data.cycles; saveCycles(); }
-      if (data.mastered) { mastered = data.mastered; saveMastered(); }
-      if (data.words) { words = data.words; saveWords(); }
-      alert('✅ 数据导入成功！');
+      let text = (e.target.result || '').toString().replace(/^﻿/, '').trim();
+      if (!text) throw new Error('文件是空的');
+      if (text.startsWith('<')) throw new Error('你选的好像是网页，不是 JSON 文件');
+      const data = JSON.parse(text);
+      if (Array.isArray(data)) throw new Error('这不是本工具导出的备份文件');
+      if (data.words && Array.isArray(data.words)) { words = data.words; saveWords(); }
+      if (data.records && Array.isArray(data.records)) { records = data.records; saveRecords(); }
+      if (data.cycles && typeof data.cycles === 'object') { cycles = data.cycles; saveCycles(); }
+      if (data.mastered && typeof data.mastered === 'object') { mastered = data.mastered; saveMastered(); }
+      if (data.settings && typeof data.settings === 'object') { settings = Object.assign(settings, data.settings); saveSettings(); }
+      alert('✅ 备份导入成功！共恢复 ' + (data.words ? data.words.length : 0) + ' 个单词');
       updateOverview();
       renderLibrary();
       renderProgress();
-    } catch(err) { alert('❌ 文件格式错误'); }
+    } catch (err) {
+      alert('❌ 导入失败：' + err.message + '\n\n请确认选的是本工具导出的 .json 备份文件');
+    }
   };
-  reader.readAsText(file);
+  reader.readAsText(file, 'utf-8');
 }
 function clearAllData() {
   if (!confirm('确定清空所有数据？此操作不可恢复！')) return;
-  localStorage.clear();
+  localStorage.removeItem(KEY_PREFIX + 'bw_words');
+  localStorage.removeItem(KEY_PREFIX + 'bw_records');
+  localStorage.removeItem(KEY_PREFIX + 'bw_cycles');
+  localStorage.removeItem(KEY_PREFIX + 'bw_mastered');
+  localStorage.removeItem(KEY_PREFIX + 'bw_settings');
   words = []; records = []; cycles = {}; mastered = {}; settings = { reviewLimit: 50, newLimit: 20, autoSkip: true };
   alert('已清空所有数据');
   location.reload();
@@ -578,7 +495,6 @@ function clearAllData() {
 loadAll();
 initStudyPage();
 </script>
-
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js').catch(() => {});
