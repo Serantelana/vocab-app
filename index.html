@@ -293,7 +293,7 @@ function getTodayNewList() {
     if (settings.autoSkip && (mastered[w.id] || 0) >= 3) return false;
     return true;
   });
-  newWords.sort((a, b) => a.initial.localeCompare(b.initial));
+  newWords.sort((a, b) => (a.initial || '').localeCompare(b.initial || ''));
   if (settings.newLimit > 0) return newWords.slice(0, settings.newLimit);
   return newWords;
 }
