@@ -453,31 +453,47 @@ function downloadJSON(data, filename) {
   a.href = url; a.download = filename; a.click();
   URL.revokeObjectURL(url);
 }
-function handleProgressImport(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    try {
-      let text = (e.target.result || '').toString().replace(/^﻿/, '').trim();
-      if (!text) throw new Error('文件是空的');
-      if (text.startsWith('<')) throw new Error('你选的好像是网页，不是 JSON 文件');
-      const data = JSON.parse(text);
-      if (Array.isArray(data)) throw new Error('这不是本工具导出的备份文件');
-      if (data.words && Array.isArray(data.words)) { words = data.words; saveWords(); }
-      if (data.records && Array.isArray(data.records)) { records = data.records; saveRecords(); }
-      if (data.cycles && typeof data.cycles === 'object') { cycles = data.cycles; saveCycles(); }
-      if (data.mastered && typeof data.mastered === 'object') { mastered = data.mastered; saveMastered(); }
-      if (data.settings && typeof data.settings === 'object') { settings = Object.assign(settings, data.settings); saveSettings(); }
-      alert('✅ 备份导入成功！共恢复 ' + (data.words ? data.words.length : 0) + ' 个单词');
-      updateOverview();
-      renderLibrary();
-      renderProgress();
-    } catch (err) {
-      alert('❌ 导入失败：' + err.message + '\n\n请确认选的是本工具导出的 .json 备份文件');
+function handleProgressImport(text) {
+  try {
+    const data = JSON.parse(text);
+    if (!data.words || !Array.isArray(data.words)) {
+      alert('进度文件格式不正确');
+      return;
     }
-  };
-  reader.readAsText(file, 'utf-8');
+
+    // ✅ 关键：导入时做字段兼容映射
+    const words = data.words
+      .map(w => ({
+        ...w,
+        initial: w.initial || w.pos || w.phonetic || '?'  // pos → initial 兜底
+      }))
+      // ✅ 过滤垃圾条目：纯数字序号、空 word
+      .filter(w => w.word && !/^\d+$/.test(w.word.trim()));
+
+    let learned = parseInt(data.learnedCount) || 0;
+    let newCount = parseInt(data.newCount) || 0;
+
+    // 合并到现有数据（不覆盖已有进度，只补新词）
+    const existing = JSON.parse(localStorage.getItem('words') || '[]');
+    const existingMap = {};
+    existing.forEach(w => { existingMap[w.word] = w; });
+
+    words.forEach(w => {
+      if (!existingMap[w.word]) {
+        existingMap[w.word] = w;
+      }
+    });
+
+    const merged = Object.values(existingMap);
+    localStorage.setItem('words', JSON.stringify(merged));
+    localStorage.setItem('learnedCount', learned);
+    localStorage.setItem('newCount', newCount);
+
+    alert(`导入成功！共 ${merged.length} 个单词`);
+    location.reload();
+  } catch(e) {
+    alert('导入失败：' + e.message);
+  }
 }
 function clearAllData() {
   if (!confirm('确定清空所有数据？此操作不可恢复！')) return;
